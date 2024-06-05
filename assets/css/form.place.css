@@ -1,0 +1,27 @@
+.form-container {
+    width: 50%;
+    margin-top: 5%;
+    margin-left: 20%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Hide the form initially */
+}
+.form-container h4 {
+    text-align: center;
+}
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-container input, .form-container select, .form-container button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.form-container button {
+    cursor: pointer;
+}
