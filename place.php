@@ -129,8 +129,8 @@
                                                             <th>".$row["Order"]."</th>
                                                             <th>".$row["Date"]."</th>
                                                             <th>
-                                                                <a href='update-place.php?id=".$row["id"]."'>Update</a> |
-                                                                <a href='delete-place.php?id=".$row["id"]."' onclick='return confirm(\"Are you sure you want to delete this item?\")'>Delete</a>
+                                                                <a href='update-place.php?id=".$row["id"]."'>Засах</a> |
+                                                                <a href='delete-place.php?id=".$row["id"]."' onclick='return confirm(\"Та үнэхээр УСТГАХ уу?\")'>Устгах</a>
                                                             </th>
                                                         </tr>
                                                     </tbody>";
@@ -149,8 +149,7 @@
 
                                     // Close connection
                                     mysqli_close($conn);
-                                ?>
-                                                    
+                                ?>                  
                     </ul>
                 </nav>
                 <!-- end navbar-->
@@ -158,7 +157,7 @@
             <!-- Top Bar End -->
         </div>
         <!-- end page-wrapper -->
-        
+
         <!-- jQuery  -->
         <script src="assets/js/form.place.js"></script>
         <script src="assets/js/jquery.min.js"></script>
