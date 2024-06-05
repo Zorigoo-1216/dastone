@@ -117,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <option value="Захирал" <?php if ($row['Director'] == 'Захирал') echo 'selected'; ?>>Захирал</option>
                                     </select><br>
 
-                                    <button class="btn btn-primary" type="submit">Хадгалах</button>
+                                    <button class="btn btn-primary" type="submit">Засах</button>
                                     <button class="btn btn-danger" href="place.php">Буцах</button>
                                 </form>
                                 </div>  
@@ -157,8 +157,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                             <th>".$row["Order"]."</th>
                                                             <th>".$row["Date"]."</th>
                                                             <th>
-                                                                <a href='update-place.php?id=".$row["id"]."'>Засах</a> |
-                                                                <a href='delete-place.php?id=".$row["id"]."' onclick='return confirm(\"Та үнэхээр УСТГАХ уу?\")'>Устгах</a>
+                                                            <a class='btn btn-success' href='update-place.php?id=".$row["id"]."'>Засах</a> 
+                                                            <a class='btn btn-danger' href='delete-place.php?id=".$row["id"]."' onclick='return confirm(\"Та үнэхээр УСТГАХ уу?\")'>Устгах</a>
                                                             </th>
                                                         </tr>
                                                     </tbody>";
