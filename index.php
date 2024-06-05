@@ -40,6 +40,7 @@
             <div class="menu-content h-100" data-simplebar>
                 <ul class="metismenu left-sidenav-menu">
                     <li>
+                        <h1>hello</h1>
                         <a href="javascript: void(0);"> <i data-feather="work" class="align-self-center menu-icon"></i><span>Хүний нөөц</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                         <ul class="nav-second-level" aria-expanded="false">
                             <li class="nav-item"><a class="nav-link" href="place.php"><i class="ti-control-record"></i>Газар нэгж</a></li>
