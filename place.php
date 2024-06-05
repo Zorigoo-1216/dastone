@@ -120,18 +120,21 @@
                                                     <th>Үйлдэл</th>
                                                 </tr>
                                                 </thead>";
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            echo "<tbody>
-                                                <tr>
-                                                    <th><span class='co-name'>".$row["UnitName"]."</span></th>
-                                                    <th>".$row["Director"]."</th>
-                                                    <th>".$row["Status"]."</th>
-                                                    <th>".$row["Order"]."</th>
-                                                    <th>".$row["Date"]."</th>
-                                                    <th>Засах | Устгах</th>
-                                                </tr>
-                                                </tbody>";
-                                        }
+                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                    echo "<tbody>
+                                                        <tr>
+                                                            <th><span class='co-name'>".$row["UnitName"]."</span></th>
+                                                            <th>".$row["Director"]."</th>
+                                                            <th>".$row["Status"]."</th>
+                                                            <th>".$row["Order"]."</th>
+                                                            <th>".$row["Date"]."</th>
+                                                            <th>
+                                                                <a href='update-place.php?id=".$row["id"]."'>Update</a> |
+                                                                <a href='delete-place.php?id=".$row["id"]."' onclick='return confirm(\"Are you sure you want to delete this item?\")'>Delete</a>
+                                                            </th>
+                                                        </tr>
+                                                    </tbody>";
+                                                }
                                         echo "</table>";
                                         echo "</div>";
 
@@ -155,7 +158,7 @@
             <!-- Top Bar End -->
         </div>
         <!-- end page-wrapper -->
-
+        
         <!-- jQuery  -->
         <script src="assets/js/form.place.js"></script>
         <script src="assets/js/jquery.min.js"></script>
