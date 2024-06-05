@@ -52,7 +52,7 @@
             </div>
         </div>
         <!-- end left-sidenav-->
-
+        
         <div class="page-wrapper">
             <!-- Top Bar Start -->
             <div class="topbar">            
@@ -69,8 +69,8 @@
 
                                         <label for="status" class="form-check-label">Төлөв</label>
                                         <select id="status" name="status" required>
-                                            <option value="active">Идэвхитэй</option>
-                                            <option value="inactive">Идэвхгүй</option>
+                                            <option value="Идэвхитэй">Идэвхитэй</option>
+                                            <option value="Идэвхгүй">Идэвхгүй</option>
                                         </select>
 
                                         <label for="order" class="form-check-label">Эрэмбэ</label>
@@ -78,14 +78,14 @@
 
                                         <label for="parentUnit" class="form-check-label">Эцэг газар нэгж</label>
                                         <select id="parentUnit" name="parentUnit" required>
-                                            <option value="planningManagementCouncil">Төлөвлөлт удирдах зөвлөл-1</option>
-                                            <option value="planningManagementCouncil">Төлөвлөлт удирдах зөвлөл-2</option>
+                                            <option value="Төлөвлөлт удирдах зөвлөл-1">Төлөвлөлт удирдах зөвлөл-1</option>
+                                            <option value="Төлөвлөлт удирдах зөвлөл-2">Төлөвлөлт удирдах зөвлөл-2</option>
                                         </select>
 
                                         <label for="director" class="form-check-label">Захирал</label>
                                         <select id="director" name="director" required>
-                                            <option value="">[Сонгоно уу-1]</option>
-                                            <option value="">[Сонгоно уу-2]</option>
+                                            <option value="-">[Сонгоно уу]</option>
+                                            <option value="Захирал">Захирал</option>
                                         </select>
 
                                         <button class="btn btn-primary" type="submit">Хадгалах</button>
@@ -93,6 +93,7 @@
                                     </form>
 
                                 </div>  
+                              
                                 <?php
                                     include 'db_conn.php'; // Include the database connection file
 
@@ -105,29 +106,36 @@
                                         // Check if there are any rows returned
                                     if (mysqli_num_rows($result) > 0) {
                                             // Output data of each row in a table
-                                        echo "<div style='position: absolute; top: 100px; left: 100px; z-index: 0;'>";
-                                        echo "<table border='1'>
+                                            echo"<div class='card-body'>";
+                                            echo"<div class='table-rep-plugin'>";
+                                            echo"<div class='table-responsive mb-0' data-pattern='priority-columns'>";
+                                        echo "<table id='tech-companies-1' class='table table-striped mb-0'>
+                                                <thead>        
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Unit Name</th>
-                                                    <th>Status</th>
-                                                    <th>Order</th>
-                                                    <th>Parent Unit</th>
-                                                    <th>Director</th>
-                                                    <th>Date</th>
-                                                </tr>";
+                                                    <th>Нэр</th>
+                                                    <th>Захирал</th>
+                                                    <th>Төлөв</th>
+                                                    <th>Эрэмбэ</th>
+                                                    <th>Зассан</th>
+                                                    <th>Үйлдэл</th>
+                                                </tr>
+                                                </thead>";
                                         while ($row = mysqli_fetch_assoc($result)) {
-                                            echo "<tr>
-                                                    <td>".$row["id"]."</td>
-                                                    <td>".$row["UnitName"]."</td>
-                                                    <td>".$row["Status"]."</td>
-                                                    <td>".$row["Order"]."</td>
-                                                    <td>".$row["ParentUnit"]."</td>
-                                                    <td>".$row["Director"]."</td>
-                                                    <td>".$row["Date"]."</td>
-                                                </tr>";
+                                            echo "<tbody>
+                                                <tr>
+                                                    <th><span class='co-name'>".$row["UnitName"]."</span></th>
+                                                    <th>".$row["Director"]."</th>
+                                                    <th>".$row["Status"]."</th>
+                                                    <th>".$row["Order"]."</th>
+                                                    <th>".$row["Date"]."</th>
+                                                    <th>Засах | Устгах</th>
+                                                </tr>
+                                                </tbody>";
                                         }
                                         echo "</table>";
+                                        echo "</div>";
+
+                                        echo "</div>";
                                         echo "</div>";
                                     } else {
                                         echo "0 results";
@@ -139,6 +147,7 @@
                                     // Close connection
                                     mysqli_close($conn);
                                 ?>
+                                                    
                     </ul>
                 </nav>
                 <!-- end navbar-->
