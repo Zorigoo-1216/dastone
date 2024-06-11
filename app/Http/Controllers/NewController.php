@@ -6,6 +6,97 @@ use Illuminate\Support\Facades\DB;
 
 class NewController extends Controller
 {
+    public function viewposition()
+    {
+        return view('viewposition');
+    }
+
+    public function addposition()
+    {
+        return view('addposition');
+    }
+
+    public function addFormpos()
+    {
+        $conn = $this->db_conn(); 
+
+        if (isset($_POST['submit'])) {
+            $posName = $_POST['posName'];
+            $status = $_POST['status'];
+            $sortOrder = $_POST['sortOrder'];
+            $editEmpId = '6666';
+            $editDate = date('Y-m-d');
+
+            $sql = "INSERT INTO ORG_POSITION (POS_NAME, STATUS, EDIT_DATE, EDIT_EMPID, SORT_ORDER) 
+                    VALUES ('$posName', '$status', '$editDate', '$editEmpId','$sortOrder')";
+
+            if (mysqli_query($conn, $sql)) {
+                return view('addposition');
+            } else {
+                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            }
+        }
+    }
+
+    public function deleteposition($id)
+    {
+        $conn = $this->db_conn(); 
+
+        $sql = "DELETE FROM ORG_POSITION WHERE POS_ID='$id'";
+
+        if (mysqli_query($conn, $sql)) {
+            mysqli_close($conn);
+            return redirect()->route('viewposition');
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+    }
+
+    public function updateposition(Request $request, $id)
+    {
+        $conn = $this->db_conn(); 
+    
+        if ($request->isMethod('post')) {
+            $posName = $request->input('posName');
+            $status = $request->input('status');
+            $sortOrder = $request->input('sortOrder');
+            $editEmpId = '6666';
+            $editDate = date('Y-m-d');
+    
+            $sql = "UPDATE ORG_POSITION SET 
+                        POS_NAME='$posName', 
+                        STATUS='$status', 
+                        EDIT_DATE='$editDate', 
+                        EDIT_EMPID='$editEmpId', 
+                        SORT_ORDER='$sortOrder'
+                    WHERE POS_ID='$id'";
+    
+            if (mysqli_query($conn, $sql)) {
+                mysqli_close($conn);
+                return redirect()->route('viewposition');
+            } else {
+                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            }
+        }
+    
+        $sql = "SELECT * FROM ORG_POSITION WHERE POS_ID='$id'";
+        $result = mysqli_query($conn, $sql);
+        $place = mysqli_fetch_assoc($result);
+    
+        mysqli_close($conn);
+    
+        return view('updateposition', compact('place'));
+    }
+    
+
+
+
+
+
+
+
+
+
     public function viewplace()
     {
         return view('viewplace');
