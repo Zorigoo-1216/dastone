@@ -35,7 +35,7 @@
                     <a href="javascript: void(0);"> <i data-feather="work" class="align-self-center menu-icon"></i><span>Хүний нөөц</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li class="nav-item"><a class="nav-link" href="{{ route('viewplace') }}"><i class="ti-control-record"></i>Газар нэгж</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="ti-control-record"></i>Албан тушаал</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('viewposition') }}"><i class="ti-control-record"></i>Албан тушаал</a></li>
                         <li class="nav-item"><a class="nav-link" href="#"><i class="ti-control-record"></i>Ажилтны бүртгэл</a></li>
                     </ul>
                 </li>

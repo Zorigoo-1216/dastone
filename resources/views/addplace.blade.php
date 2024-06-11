@@ -22,8 +22,8 @@
 
         <label for="status" class="form-check-label">Төлөв</label>
         <select id="status" name="status" required>
-            <option value="Идэвхитэй">Идэвхитэй</option>
-            <option value="Идэвхгүй">Идэвхгүй</option>
+            <option value="A">Идэвхитэй</option>
+            <option value="N">Идэвхгүй</option>
         </select>
 
         <label for="sortOrder" class="form-check-label">Эрэмбэ</label>
