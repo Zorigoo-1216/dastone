@@ -7,6 +7,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/addplace', [NewController::class, 'showForm'])->name('showform');
 Route::post('/addform', [NewController::class, 'addForm'])->name('addform');
 Route::get('/place', [NewController::class, 'viewplace'])->name('viewplace');
 Route::get('/place/add', [NewController::class, 'addplace'])->name('addplace');

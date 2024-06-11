@@ -95,7 +95,28 @@ class NewController extends Controller
 
 
 
+    public function showForm()
+    {
+        $conn = $this->db_conn();
+        $sql = "SELECT D.DEP_ID, D.DEP_NAME, D.STATUS, D.SORT_ORDER, LEVEL
+                FROM ORG_DEPARTMENT D
+                LEFT JOIN ORG_EMPLOYEE E ON E.EMP_ID = D.DIRECTOR_EMPID
+                WHERE D.STATUS != 'D'
+                START WITH D.PARENT_DEPID IS NULL
+                CONNECT BY PRIOR D.DEP_ID = D.PARENT_DEPID AND D.STATUS != 'D'
+                ORDER SIBLINGS BY D.SORT_ORDER";
+        
+        $result = mysqli_query($conn, $sql);
+        $departments = [];
+        
+        while ($row = mysqli_fetch_assoc($result)) {
+            $departments[] = $row;
+        }
 
+        mysqli_close($conn);
+
+        return view('addplace', compact('departments'));
+    }
 
     public function viewplace()
     {
