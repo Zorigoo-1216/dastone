@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewController;
+use App\Http\Controllers\EmployeeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,3 +20,11 @@ Route::get('/position', [NewController::class, 'viewposition'])->name('viewposit
 Route::get('/position/add', [NewController::class, 'addposition'])->name('addposition');
 Route::match(['get', 'post'], '/position/update/{id}', [NewController::class, 'updateposition'])->name('updateposition');
 Route::get('/delete-position/{id}', [NewController::class, 'deleteposition'])->name('deleteposition');
+
+
+Route::get('/employees', [EmployeeController::class, 'index'])->name('employee.index');
+Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employee.create');
+Route::post('/employees', [EmployeeController::class, 'store'])->name('employee.store');
+Route::get('/employees/{employee}/edit', [EmployeeController::class, 'edit'])->name('employee.edit');
+Route::put('/employees/{employee}', [EmployeeController::class, 'update'])->name('employee.update');
+Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy'])->name('employee.destroy');
